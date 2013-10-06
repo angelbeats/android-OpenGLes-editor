@@ -1,4 +1,4 @@
-package com.bn.Sample9_4;
+package com.editor;
 
 import com.google.inject.Module;
 import roboguice.application.RoboApplication;

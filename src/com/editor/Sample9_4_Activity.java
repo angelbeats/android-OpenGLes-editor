@@ -1,4 +1,4 @@
-package com.bn.Sample9_4;
+package com.editor;
 import android.app.Activity;
 import android.content.Context;
 import android.content.pm.ActivityInfo;
@@ -12,6 +12,7 @@ import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TableLayout;
+import com.bn.editor.R;
 
 public class Sample9_4_Activity extends Activity {
 	private MySurfaceView mGLSurfaceView;
@@ -19,8 +20,6 @@ public class Sample9_4_Activity extends Activity {
     LinearLayout imageButtonLinearLayout;
 
     private Button sUp;
-
-
 
 
     @Override
@@ -37,8 +36,6 @@ public class Sample9_4_Activity extends Activity {
 		setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
 
         setContentView(R.layout.main);
-
-
 
 
     /* -------------------- Start add ImageButtons------------------------------------- */
@@ -70,7 +67,7 @@ public class Sample9_4_Activity extends Activity {
                 TableLayout.LayoutParams.FILL_PARENT));
 
 
-        sUp=(Button)  findViewById(R.id.button1);
+        sUp=(Button)  findViewById(R.id.button2);
          sUp.setOnClickListener(new View.OnClickListener() {
              @Override
              public void onClick(View view) {
@@ -79,6 +76,16 @@ public class Sample9_4_Activity extends Activity {
                   mGLSurfaceView.setUp();
              }
          });
+
+        sUp=(Button)  findViewById(R.id.button3);
+        sUp.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                //To change body of implemented methods use File | Settings | File Templates.
+
+                mGLSurfaceView.setDown();
+            }
+        });
 
 
     }

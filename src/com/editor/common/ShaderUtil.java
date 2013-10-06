@@ -1,4 +1,4 @@
-package com.bn.Sample9_4.common;
+package com.editor.common;
 
 import java.io.ByteArrayOutputStream;
 import java.io.InputStream;

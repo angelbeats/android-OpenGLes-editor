@@ -1,4 +1,4 @@
-package com.bn.Sample9_4.common;
+package com.editor.common;
 
 import java.io.BufferedReader;
 import java.io.InputStream;

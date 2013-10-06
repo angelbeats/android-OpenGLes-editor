@@ -5,13 +5,13 @@
     <file url="file://$PROJECT_DIR$/lib/guice-2.0-no_aop.jar" charset="GBK" />
     <file url="file://$PROJECT_DIR$/lib/roboguice-1.1.2.jar" charset="GBK" />
     <file url="file://$PROJECT_DIR$/res/layout/main.xml" charset="GBK" />
-    <file url="file://$PROJECT_DIR$/src/com/bn/Sample9_4/MySurfaceView.java" charset="GBK" />
-    <file url="file://$PROJECT_DIR$/src/com/bn/Sample9_4/ObjBuilder.java" charset="GBK" />
-    <file url="file://$PROJECT_DIR$/src/com/bn/Sample9_4/ObstacleResMgr.java" charset="GBK" />
-    <file url="file://$PROJECT_DIR$/src/com/bn/Sample9_4/Sample9_4_Activity.java" charset="GBK" />
-    <file url="file://$PROJECT_DIR$/src/com/bn/Sample9_4/common/LoadUtil.java" charset="GBK" />
-    <file url="file://$PROJECT_DIR$/src/com/bn/Sample9_4/common/ObjModel.java" charset="GBK" />
-    <file url="file://$PROJECT_DIR$/src/com/bn/Sample9_4/common/RectModel.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/com/bn/editor/MySurfaceView.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/com/bn/editor/ObjBuilder.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/com/bn/editor/ObstacleResMgr.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/com/bn/editor/Sample9_4_Activity.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/com/bn/editor/common/LoadUtil.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/com/bn/editor/common/ObjModel.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/com/bn/editor/common/RectModel.java" charset="GBK" />
   </component>
 </project>
 

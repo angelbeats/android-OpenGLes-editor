@@ -1,9 +1,9 @@
-package com.bn.Sample9_4.common;
+package com.editor.common;
 
 import android.content.res.Resources;
 import android.util.Log;
-import com.bn.Sample9_4.MatrixState;
-import com.bn.Sample9_4.ObstacleResMgr;
+import com.editor.MatrixState;
+import com.editor.ObstacleResMgr;
 
 import java.util.HashMap;
 

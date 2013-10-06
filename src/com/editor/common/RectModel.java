@@ -1,10 +1,9 @@
-package com.bn.Sample9_4.common;
+package com.editor.common;
 
 import android.content.res.Resources;
 import android.opengl.GLES20;
-import android.opengl.GLSurfaceView;
 import android.util.Log;
-import com.bn.Sample9_4.MatrixState;
+import com.editor.MatrixState;
 
 
 import java.nio.ByteBuffer;

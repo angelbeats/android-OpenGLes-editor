@@ -1,4 +1,4 @@
-package com.bn.Sample9_4;
+package com.editor;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.HashMap;
@@ -13,10 +13,9 @@ import javax.microedition.khronos.opengles.GL10;
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
-import com.bn.Sample9_4.common.LoadUtil;
-import com.bn.Sample9_4.common.Model;
-import com.bn.Sample9_4.common.ObjModel;
-import com.bn.Sample9_4.common.RectModel;
+import com.bn.editor.R;
+import com.editor.common.Model;
+import com.editor.common.RectModel;
 
 class MySurfaceView extends GLSurfaceView 
 {
@@ -29,11 +28,13 @@ class MySurfaceView extends GLSurfaceView
     int textureId;
 
     int sUp=0;
-
+//    int sDown=0;
     public void setUp(){
         sUp++;
     }
-
+    public void setDown(){
+        sUp--;
+    }
 	public MySurfaceView(Context context) {
         super(context);
         this.setEGLContextClientVersion(2);
@@ -76,14 +77,8 @@ class MySurfaceView extends GLSurfaceView
 
             MatrixState.pushMatrix();
 
-//            MatrixState.rotate(yAngle, 0, 1, 0);
-//            MatrixState.rotate(xAngle, 1, 0, 0);
 
             MatrixState.setCamera(sUp,0,35 ,0f,0f,0f,0f,1.0f,0.0f);
-            t+=0.01;
-            if(t>30){
-               t=-10;
-            }
             if(test!=null)
             {
 

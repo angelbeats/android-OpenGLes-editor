@@ -1,4 +1,4 @@
-package com.bn.Sample9_4.common;
+package com.editor.common;
 
 import java.util.Set;
 //表示法向量的类，此类的一个对象表示一个法向量

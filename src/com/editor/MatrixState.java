@@ -1,4 +1,4 @@
-package com.bn.Sample9_4;
+package com.editor;
 
 import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
@@ -42,6 +42,7 @@ public class MatrixState {
     public static void rotate(float angle, float x, float y, float z)//…Ë÷√»∆xyz÷·“∆∂Ø
     {
         Matrix.rotateM(currMatrix, 0, angle, x, y, z);
+
     }
 
 

@@ -1,14 +1,12 @@
-package com.bn.Sample9_4.common;
+package com.editor.common;
 
 import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
 import java.nio.FloatBuffer;
-import java.util.UUID;
 
 import android.content.res.Resources;
 import android.opengl.GLES20;
-import com.bn.Sample9_4.MatrixState;
-import com.bn.Sample9_4.common.ShaderUtil;
+import com.editor.MatrixState;
 
 
 //加载后的物体——仅携带顶点信息，颜色随机

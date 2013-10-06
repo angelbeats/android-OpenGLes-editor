@@ -1,4 +1,4 @@
-package com.bn.Sample9_4;
+package com.editor;
 
 import android.content.res.Resources;
 

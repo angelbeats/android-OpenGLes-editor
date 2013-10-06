@@ -1,6 +1,4 @@
-package com.bn.Sample9_4.common;
-
-import java.util.Vector;
+package com.editor.common;
 
 /**
  * Created with IntelliJ IDEA.
