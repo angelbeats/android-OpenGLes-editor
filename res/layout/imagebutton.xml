@@ -23,11 +23,7 @@
                     android:text="场景"
                     android:id="@+id/textView1" android:layout_gravity="center" android:textSize="20dp"
                     android:textStyle="bold"/>
-            <Button
-                    android:layout_width="fill_parent"
-                    android:layout_height="wrap_content"
-                    android:text="上"
-                    android:id="@+id/button2"/>
+
             <Button
                     android:layout_width="fill_parent"
                     android:layout_height="wrap_content"

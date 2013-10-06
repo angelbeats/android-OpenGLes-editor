@@ -13,7 +13,7 @@ import javax.microedition.khronos.opengles.GL10;
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
-import com.bn.editor.R;
+import com.editor.R;
 import com.editor.common.Model;
 import com.editor.common.RectModel;
 

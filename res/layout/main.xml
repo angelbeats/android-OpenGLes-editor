@@ -1,11 +1,130 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-              android:orientation="vertical"
               android:layout_width="fill_parent"
               android:layout_height="fill_parent"
+              android:orientation="horizontal">
 
-              android:gravity="center"
-        >
+
+    <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="170dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_gravity="center_horizontal|top">
+
+        <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="60dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1" android:layout_marginRight="1dp">
+            <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="场景"
+                    android:id="@+id/textView1" android:layout_gravity="center" android:textSize="20dp"
+                    android:textStyle="bold"/>
+
+            <Button
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:text="下"
+                    android:id="@+id/button3"/>
+            <Button
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:text="左"
+                    android:id="@+id/button4"/>
+            <Button
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:text="右"
+                    android:id="@+id/button5"/>
+            <Button
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:text="深"
+                    android:id="@+id/button6"/>
+            <Button
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:text="浅"
+                    android:id="@+id/button7"/>
+        </LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="fill_parent"
+            android:layout_height="150dp"
+            android:layout_weight="1">
+        <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="150dp"
+                android:text="testtesttest\\testtesttest.obj"
+                android:id="@+id/textView" android:layout_gravity="center" android:textColor="#1cffcc"
+                android:textStyle="bold" android:textSize="20dp" android:textIsSelectable="true"/>
+        <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="选择文件"
+                android:id="@+id/button" android:layout_marginRight="1dp"/>
+        <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="导入"
+                android:id="@+id/button1"/>
+    </LinearLayout>
+
+    <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="170dp"
+            android:layout_height="fill_parent"
+            android:layout_weight="1"
+            >
+
+        <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="60dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1" android:layout_marginRight="1dp">
+            <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="物体"
+                    android:id="@+id/textView2" android:layout_gravity="center" android:textSize="20dp"
+                    android:textStyle="bold"/>
+            <Button
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:text="上"
+                    android:id="@+id/button2"/>
+            <Button
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:text="下"
+                    android:id="@+id/button3"/>
+            <Button
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:text="左"
+                    android:id="@+id/button4"/>
+            <Button
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:text="右"
+                    android:id="@+id/button5"/>
+            <Button
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:text="深"
+                    android:id="@+id/button6"/>
+            <Button
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:text="浅"
+                    android:id="@+id/button7"/>
+        </LinearLayout>
+    </LinearLayout>
 
 
 </LinearLayout>
