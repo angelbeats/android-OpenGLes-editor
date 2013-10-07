@@ -19,7 +19,6 @@ import java.nio.FloatBuffer;
  */
 public class RectModel implements Model {
 
-
     private FloatBuffer _vertexBuffer = null;
     private FloatBuffer _texCoorBuffer = null;
 
@@ -56,6 +55,7 @@ public class RectModel implements Model {
     private int _positionVertexHandleID;
     private int _texCoorHandleID;
 
+    int _texId;
 
     public RectModel(Resources arg_resources, float arg_w, float arg_h) throws Exception {
 
@@ -115,11 +115,8 @@ public class RectModel implements Model {
         Log.i(_logTag, "initShader done");
     }
 
+    public void draw() {
 
-    public void draw(int arg_t) {
-
-
-//        Log.i(_logTag, "Shader Program ID £º"+_shaderProgramID);
         GLES20.glUseProgram(_shaderProgramID);
 
         MatrixState.pushMatrix();
@@ -154,7 +151,7 @@ public class RectModel implements Model {
         GLES20.glEnableVertexAttribArray(_positionVertexHandleID);
         GLES20.glEnableVertexAttribArray(_texCoorHandleID);
         GLES20.glActiveTexture(GLES20.GL_TEXTURE0);
-        GLES20.glBindTexture(GLES20.GL_TEXTURE_2D, arg_t);
+        GLES20.glBindTexture(GLES20.GL_TEXTURE_2D, _texId);
         GLES20.glDrawArrays(GLES20.GL_TRIANGLES, 0, 6);
 
         MatrixState.popMatrix();
@@ -199,5 +196,7 @@ public class RectModel implements Model {
         return new float[]{_tx, _ty, _tz};
     }
 
-
+    public boolean setTextureId(int arg_texId){
+        return true;
+    }
 }

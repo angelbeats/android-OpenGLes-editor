@@ -22,11 +22,8 @@ public class TextureBuilder {
 
 
     public static int getTexture(GLSurfaceView arg_myView, int arg_drawableId) {
-        // 生成纹理ID
         int[] textures = new int[1];
-        GLES20.glGenTextures(1, // 产生的纹理id的数量
-                textures, // 纹理id的数组
-                0 // 偏移量
+        GLES20.glGenTextures(1, textures,  0
         );
         int textureId = textures[0];
         GLES20.glBindTexture(GLES20.GL_TEXTURE_2D, textureId);
@@ -39,7 +36,6 @@ public class TextureBuilder {
         GLES20.glTexParameterf(GLES20.GL_TEXTURE_2D, GLES20.GL_TEXTURE_WRAP_T,
                 GLES20.GL_REPEAT);
 
-        // 通过输入流加载图片
         InputStream is = arg_myView.getResources().openRawResource(arg_drawableId);
         Bitmap bitmapTmp;
         try {
@@ -52,17 +48,10 @@ public class TextureBuilder {
             }
         }
 
-        // 实际加载纹理
-        GLUtils.texImage2D(GLES20.GL_TEXTURE_2D, // 纹理类型，在OpenGL
-                // ES中必须为GL10.GL_TEXTURE_2D
-                0, // 纹理的层次，0表示基本图像层，可以理解为直接贴图
-                bitmapTmp, // 纹理图像
-                0 // 纹理边框尺寸
+        GLUtils.texImage2D(GLES20.GL_TEXTURE_2D, 0, bitmapTmp,  0
         );
-        bitmapTmp.recycle(); // 纹理加载成功后释放图片
+        bitmapTmp.recycle();
         return textureId;
     }
-
-
 
 }

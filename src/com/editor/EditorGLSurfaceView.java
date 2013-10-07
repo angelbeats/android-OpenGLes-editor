@@ -8,7 +8,6 @@ import android.view.MotionEvent;
  * Created with IntelliJ IDEA.
  * User: walker
  * Date: 13-10-7
- * Time: ����4:49
  * To change this template use File | Settings | File Templates.
  */
 public class EditorGLSurfaceView extends GLSurfaceView{

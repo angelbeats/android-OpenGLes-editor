@@ -9,7 +9,7 @@ package com.editor.EditorModel;
  */
 public interface Model {
 
-    public void draw(int arg_texId);
+    public void draw( );
     public String getModelId();
     public void setPosition(float arg_x ,float arg_y ,float arg_z );
     public void setScale(float arg_x ,float arg_y ,float arg_z);
@@ -20,5 +20,6 @@ public interface Model {
 
     public float[] getPosition();
 
+    public boolean setTextureId(int arg_texId);
 
 }
