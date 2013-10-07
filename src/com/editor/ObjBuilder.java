@@ -4,7 +4,7 @@ import android.content.res.Resources;
 import android.util.Log;
 import com.editor.common.LoadUtil;
 
-import com.editor.common.Model;
+import com.editor.EditorModel.Model;
 
 
 import java.util.HashMap;

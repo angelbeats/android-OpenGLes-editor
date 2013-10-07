@@ -1,4 +1,4 @@
-package com.editor.common;
+package com.editor.EditorModel;
 
 /**
  * Created with IntelliJ IDEA.

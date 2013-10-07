@@ -1,9 +1,10 @@
-package com.editor.common;
+package com.editor.EditorModel;
 
 import android.content.res.Resources;
 import android.opengl.GLES20;
 import android.util.Log;
 import com.editor.MatrixState;
+import com.editor.common.ShaderUtil;
 
 
 import java.nio.ByteBuffer;

@@ -1,4 +1,4 @@
-package com.editor.common;
+package com.editor.EditorModel;
 
 import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
@@ -7,6 +7,7 @@ import java.nio.FloatBuffer;
 import android.content.res.Resources;
 import android.opengl.GLES20;
 import com.editor.MatrixState;
+import com.editor.common.ShaderUtil;
 
 
 //加载后的物体——仅携带顶点信息，颜色随机

@@ -9,6 +9,7 @@ import java.util.HashSet;
 
 import android.content.res.Resources;
 import android.util.Log;
+import com.editor.EditorModel.ObjModel;
 
 public class LoadUtil {
     //求两个向量的叉积
