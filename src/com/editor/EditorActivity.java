@@ -21,7 +21,7 @@ public class EditorActivity extends RoboActivity {
 	private MySurfaceView mGLSurfaceView;
 
     LinearLayout imageButtonLinearLayout;
-    @InjectView(R.id.textView2)  TextView sUp;
+    @InjectView(R.id.button)  Button sUp;
 
 
 
