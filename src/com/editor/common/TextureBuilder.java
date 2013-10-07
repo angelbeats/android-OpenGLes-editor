@@ -1,11 +1,10 @@
 package com.editor.common;
 
+import android.content.res.Resources;
 import android.graphics.*;
 import android.opengl.GLES20;
 import android.opengl.GLSurfaceView;
 import android.opengl.GLUtils;
-
-
 
 
 import java.io.IOException;
@@ -19,11 +18,9 @@ import java.io.InputStream;
  */
 public class TextureBuilder {
 
-
-
-    public static int getTexture(GLSurfaceView arg_myView, int arg_drawableId) {
+    public static int getTexture(Resources arg_resources, int arg_drawableId) {
         int[] textures = new int[1];
-        GLES20.glGenTextures(1, textures,  0
+        GLES20.glGenTextures(1, textures, 0
         );
         int textureId = textures[0];
         GLES20.glBindTexture(GLES20.GL_TEXTURE_2D, textureId);
@@ -36,7 +33,7 @@ public class TextureBuilder {
         GLES20.glTexParameterf(GLES20.GL_TEXTURE_2D, GLES20.GL_TEXTURE_WRAP_T,
                 GLES20.GL_REPEAT);
 
-        InputStream is = arg_myView.getResources().openRawResource(arg_drawableId);
+        InputStream is = arg_resources.openRawResource(arg_drawableId);
         Bitmap bitmapTmp;
         try {
             bitmapTmp = BitmapFactory.decodeStream(is);
@@ -48,7 +45,7 @@ public class TextureBuilder {
             }
         }
 
-        GLUtils.texImage2D(GLES20.GL_TEXTURE_2D, 0, bitmapTmp,  0
+        GLUtils.texImage2D(GLES20.GL_TEXTURE_2D, 0, bitmapTmp, 0
         );
         bitmapTmp.recycle();
         return textureId;
