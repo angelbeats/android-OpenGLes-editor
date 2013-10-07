@@ -2,10 +2,8 @@ package com.editor.EditorModel;
 
 import android.content.res.Resources;
 import android.util.Log;
-import com.editor.EditorModel.Model;
-import com.editor.EditorModel.RectModel;
-import com.editor.MatrixState;
-import com.editor.ObstacleResMgr;
+import com.editor.common.MatrixState;
+
 import com.editor.common.LoadUtil;
 
 import java.util.HashMap;
@@ -46,22 +44,6 @@ public class ModelFactory {
             }
         }
         return objHashMap;
-    }
-
-    public static Model buildObjModel(String arg_path) throws Exception {
-        MatrixState.setLightLocation(40, 10, 20);
-        Resources resource = ObstacleResMgr.getResMng();
-        if (null == resource) {
-            Log.e(_logTag, "Resources is null");
-            throw new Exception("Resources is null");
-        }
-        Log.i(_logTag, "load " + arg_path);
-        Model tmp = LoadUtil.loadObjFile(arg_path, resource);
-        if (null == tmp) {
-            Log.e(_logTag, arg_path + " is not exists !");
-            throw new Exception("can not find the obj file " + arg_path + " in assets!");
-        }
-        return tmp;
     }
 
     public static Model buildRectModel(float arg_width , float arg_height , Resources arg_resources)throws Exception{

@@ -1,4 +1,4 @@
-package com.editor;
+package com.editor.common;
 
 import java.nio.ByteBuffer;
 import java.nio.ByteOrder;

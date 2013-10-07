@@ -6,7 +6,7 @@ import java.nio.FloatBuffer;
 
 import android.content.res.Resources;
 import android.opengl.GLES20;
-import com.editor.MatrixState;
+import com.editor.common.MatrixState;
 import com.editor.common.ShaderUtil;
 
 

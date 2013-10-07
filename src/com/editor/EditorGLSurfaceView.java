@@ -1,16 +1,20 @@
 package com.editor;
 
+import android.content.Context;
 import android.opengl.GLSurfaceView;
-
 import android.view.MotionEvent;
 
-import android.content.Context;
-
-class MySurfaceView extends GLSurfaceView
-{
+/**
+ * Created with IntelliJ IDEA.
+ * User: walker
+ * Date: 13-10-7
+ * Time: ����4:49
+ * To change this template use File | Settings | File Templates.
+ */
+public class EditorGLSurfaceView extends GLSurfaceView{
     private SceneRenderer _sceneRenderer;
 
-	public MySurfaceView(Context context) {
+    public EditorGLSurfaceView(Context context) {
         super(context);
         this.setEGLContextClientVersion(2);
         _sceneRenderer = new SceneRenderer();
@@ -18,11 +22,9 @@ class MySurfaceView extends GLSurfaceView
         setRenderMode(GLSurfaceView.RENDERMODE_CONTINUOUSLY);
     }
     @Override
-    public boolean onTouchEvent(MotionEvent e) 
+    public boolean onTouchEvent(MotionEvent e)
     {
         return true;
     }
-
-
-
 }
+

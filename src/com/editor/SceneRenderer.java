@@ -3,6 +3,7 @@ package com.editor;
 import android.opengl.GLES20;
 import android.opengl.GLSurfaceView;
 import com.editor.EditorModel.Model;
+import com.editor.common.MatrixState;
 
 import javax.microedition.khronos.egl.EGLConfig;
 import javax.microedition.khronos.opengles.GL10;
