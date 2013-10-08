@@ -28,12 +28,6 @@ public class EditorActivity extends RoboActivity {
 
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
 
-        setContentView(R.layout.main);
-
-
-        ArcMenu arcMenu = (ArcMenu) this.findViewById(R.id.arc_menu);
-        ArcMenu arcMenu2 = (ArcMenu)this. findViewById(R.id.arc_menu_2);
-        RayMenu rayMenu = (RayMenu) this.findViewById(R.id.ray_menu);
 
 
 
@@ -45,26 +39,29 @@ public class EditorActivity extends RoboActivity {
         _editorView.getHolder().setFormat(PixelFormat.TRANSPARENT);
         setContentView(_editorView);
 
+
+
+        setContentView(R.layout.main);
+        ArcMenu arcMenu  = (ArcMenu) this.findViewById(R.id.arc_menu);
+//        ArcMenu arcMenu2 = (ArcMenu) this.findViewById(R.id.arc_menu_2);
+//        RayMenu rayMenu  = (RayMenu) this.findViewById(R.id.ray_menu);
         initArcMenu(arcMenu, ITEM_DRAWABLES);
-        initArcMenu(arcMenu2, ITEM_DRAWABLES);
 
-
-        final int itemCount = ITEM_DRAWABLES.length;
-        for (int i = 0; i < itemCount; i++) {
-            ImageView item = new ImageView(this);
-            item.setImageResource(ITEM_DRAWABLES[i]);
-
-            final int position = i;
-            rayMenu.addItem(item, new View.OnClickListener() {
-
-                @Override
-                public void onClick(View v) {
-                    Toast.makeText(EditorActivity.this, "position:" + position, Toast.LENGTH_SHORT).show();
-                }
-            });// Add a menu item
-        }
-
-
+//        initArcMenu(arcMenu2, ITEM_DRAWABLES);
+//        final int itemCount = ITEM_DRAWABLES.length;
+//        for (int i = 0; i < itemCount; i++) {
+//            ImageView item = new ImageView(this);
+//            item.setImageResource(ITEM_DRAWABLES[i]);
+//
+//            final int position = i;
+//            arcMenu.addItem(item, new View.OnClickListener() {
+//
+//                @Override
+//                public void onClick(View v) {
+//                    Toast.makeText(EditorActivity.this, "position:" + position, Toast.LENGTH_SHORT).show();
+//                }
+//            });// Add a menu item
+//        }
 
     }
 
