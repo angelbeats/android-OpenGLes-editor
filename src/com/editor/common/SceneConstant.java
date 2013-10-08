@@ -4,7 +4,7 @@ package com.editor.common;
  * Created with IntelliJ IDEA.
  * User: walker
  * Date: 13-10-7
- * Time: ����11:01
+
  * To change this template use File | Settings | File Templates.
  */
 public class SceneConstant {
@@ -39,7 +39,7 @@ public class SceneConstant {
     public final static float INIT_LIGHT_Z = 20;
 
     //background color
-    public final static float INIT_COLOR_R = 0;
+    public final static float INIT_COLOR_R = 20;
     public final static float INIT_COLOR_G = 0;
     public final static float INIT_COLOR_B = 0;
     public final static float INIT_COLOR_ALPHA = 1;
