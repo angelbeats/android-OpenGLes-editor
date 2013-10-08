@@ -1,23 +1,22 @@
 package com.editor;
-
-import android.content.Context;
 import android.content.pm.ActivityInfo;
 import android.graphics.PixelFormat;
 import android.os.Bundle;
-import android.view.LayoutInflater;
+import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
-import android.widget.Button;
-import android.widget.LinearLayout;
-import android.widget.TableLayout;
+import android.widget.ImageView;
+import android.widget.Toast;
+import com.editor.common.ArcMenu.ArcMenu;
+import com.editor.common.ArcMenu.RayMenu;
 import roboguice.activity.RoboActivity;
-import roboguice.inject.InjectView;
 
 public class EditorActivity extends RoboActivity {
     private EditorGLSurfaceView _editorView;
 
-    LinearLayout imageButtonLinearLayout;
-    @InjectView(R.id.button) Button sUp;
+    private static final int[] ITEM_DRAWABLES = { R.drawable.composer_camera, R.drawable.composer_music,
+            R.drawable.composer_place, R.drawable.composer_sleep, R.drawable.composer_thought, R.drawable.composer_with };
+
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -31,27 +30,59 @@ public class EditorActivity extends RoboActivity {
 
         setContentView(R.layout.main);
 
-    /* -------------------- Start add ImageButtons------------------------------------- */
-        Context context = this.getApplicationContext();
-        imageButtonLinearLayout = new LinearLayout(this);
-        imageButtonLinearLayout.setLayoutParams(new TableLayout.LayoutParams(TableLayout.LayoutParams.FILL_PARENT, TableLayout.LayoutParams.FILL_PARENT));
-        imageButtonLinearLayout.setOrientation(LinearLayout.VERTICAL);
-        // add imagebuttons
-        LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-        LinearLayout imagebuttonLinearLayout = (LinearLayout) inflater.inflate(R.layout.imagebutton, imageButtonLinearLayout, false);
-        imageButtonLinearLayout.addView(imagebuttonLinearLayout);
-    /* -------------------- End add ImageButtons------------------------------------- */
+
+        ArcMenu arcMenu = (ArcMenu) this.findViewById(R.id.arc_menu);
+        ArcMenu arcMenu2 = (ArcMenu)this. findViewById(R.id.arc_menu_2);
+        RayMenu rayMenu = (RayMenu) this.findViewById(R.id.ray_menu);
+
+
+
         _editorView = new EditorGLSurfaceView(this);
 
         _editorView.requestFocus();
         _editorView.setFocusableInTouchMode(true);
 
-//        mGLSurfaceView.setZOrderOnTop(true);
         _editorView.getHolder().setFormat(PixelFormat.TRANSPARENT);
         setContentView(_editorView);
 
-        addContentView(imageButtonLinearLayout, new TableLayout.LayoutParams(TableLayout.LayoutParams.FILL_PARENT,
-                TableLayout.LayoutParams.FILL_PARENT));
+        initArcMenu(arcMenu, ITEM_DRAWABLES);
+        initArcMenu(arcMenu2, ITEM_DRAWABLES);
+
+
+        final int itemCount = ITEM_DRAWABLES.length;
+        for (int i = 0; i < itemCount; i++) {
+            ImageView item = new ImageView(this);
+            item.setImageResource(ITEM_DRAWABLES[i]);
+
+            final int position = i;
+            rayMenu.addItem(item, new View.OnClickListener() {
+
+                @Override
+                public void onClick(View v) {
+                    Toast.makeText(EditorActivity.this, "position:" + position, Toast.LENGTH_SHORT).show();
+                }
+            });// Add a menu item
+        }
+
+
+
+    }
+
+    private void initArcMenu(ArcMenu menu, int[] itemDrawables) {
+        final int itemCount = itemDrawables.length;
+        for (int i = 0; i < itemCount; i++) {
+            ImageView item = new ImageView(this);
+            item.setImageResource(itemDrawables[i]);
+
+            final int position = i;
+            menu.addItem(item, new View.OnClickListener() {
+
+                @Override
+                public void onClick(View v) {
+                    Toast.makeText(EditorActivity.this, "position:" + position, Toast.LENGTH_SHORT).show();
+                }
+            });
+        }
     }
 
     @Override
