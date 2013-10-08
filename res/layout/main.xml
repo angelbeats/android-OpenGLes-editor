@@ -1,22 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout
         xmlns:android="http://schemas.android.com/apk/res/android"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content">
+        xmlns:arc="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
 
     <com.editor.EditorGLSurfaceView
 
                 android:id="@+id/editorGLSurfaceView"
-                android:layout_width="fill_parent"
+                android:layout_width="match_parent"
                 android:layout_height="match_parent" android:layout_gravity="center"/>
 
     <com.editor.common.ArcMenu.ArcMenu
             android:background="#00000000"
             android:id="@+id/arc_menu"
-            android:layout_width="fill_parent"
-            android:layout_height="fill_parent">
-            </com.editor.common.ArcMenu.ArcMenu>
+            android:layout_width="400dp"
+            android:layout_height="400dp"
+            arc:fromDegrees="0"
+            arc:toDegrees="90"
+            arc:childSize="30dp"
+            android:layout_alignParentLeft="true" android:layout_marginLeft="-180dp" android:layout_alignParentTop="true"
+            android:layout_marginTop="-180dp"/>
 
 
 </RelativeLayout>

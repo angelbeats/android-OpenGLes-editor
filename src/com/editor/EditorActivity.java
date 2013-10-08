@@ -45,6 +45,7 @@ public class EditorActivity extends RoboActivity {
 
 
         ArcMenu arcMenu  = (ArcMenu) this.findViewById(R.id.arc_menu);
+
 //        ArcMenu arcMenu2 = (ArcMenu) this.findViewById(R.id.arc_menu_2);
 //        RayMenu rayMenu  = (RayMenu) this.findViewById(R.id.ray_menu);
         initArcMenu(arcMenu, ITEM_DRAWABLES);
