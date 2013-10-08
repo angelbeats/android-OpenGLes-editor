@@ -28,20 +28,22 @@ public class EditorActivity extends RoboActivity {
 
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
 
+        setContentView(R.layout.main);
 
 
+//        _editorView = new EditorGLSurfaceView(this);
 
-        _editorView = new EditorGLSurfaceView(this);
+        _editorView = (EditorGLSurfaceView)findViewById(R.id.editorGLSurfaceView);
 
         _editorView.requestFocus();
         _editorView.setFocusableInTouchMode(true);
 
         _editorView.getHolder().setFormat(PixelFormat.TRANSPARENT);
-        setContentView(_editorView);
+//        setContentView(_editorView);
 
 
 
-        setContentView(R.layout.main);
+
         ArcMenu arcMenu  = (ArcMenu) this.findViewById(R.id.arc_menu);
 //        ArcMenu arcMenu2 = (ArcMenu) this.findViewById(R.id.arc_menu_2);
 //        RayMenu rayMenu  = (RayMenu) this.findViewById(R.id.ray_menu);

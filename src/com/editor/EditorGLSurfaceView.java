@@ -2,6 +2,7 @@ package com.editor;
 
 import android.content.Context;
 import android.opengl.GLSurfaceView;
+import android.util.AttributeSet;
 import android.view.MotionEvent;
 
 /**
@@ -20,6 +21,15 @@ public class EditorGLSurfaceView extends GLSurfaceView{
         setRenderer(_sceneRenderer);
         setRenderMode(GLSurfaceView.RENDERMODE_CONTINUOUSLY);
     }
+    public EditorGLSurfaceView(Context context, AttributeSet attrs) {
+        super(context,attrs);
+        this.setEGLContextClientVersion(2);
+        _sceneRenderer = new SceneRenderer();
+        setRenderer(_sceneRenderer);
+        setRenderMode(GLSurfaceView.RENDERMODE_CONTINUOUSLY);
+    }
+
+
     @Override
     public boolean onTouchEvent(MotionEvent e)
     {
