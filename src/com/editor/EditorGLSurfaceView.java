@@ -5,7 +5,6 @@ import android.opengl.GLSurfaceView;
 import android.util.AttributeSet;
 import android.view.MotionEvent;
 import com.editor.editorRender.SceneRenderer;
-import com.editor.editorRender.editorRender;
 
 /**
  * Created with IntelliJ IDEA.
@@ -26,14 +25,13 @@ public class EditorGLSurfaceView extends GLSurfaceView{
     }
     private void initView(){
         this.setEGLContextClientVersion(2);
-        _sceneRenderer = new SceneRenderer();
+        _sceneRenderer = new SceneRenderer(this);
         setRenderer(_sceneRenderer);
         setRenderMode(GLSurfaceView.RENDERMODE_CONTINUOUSLY);
-
     }
 
     @Override
-    public boolean onTouchEvent(MotionEvent e)
+    public boolean onTouchEvent(MotionEvent arg_ev)
     {
         return true;
     }

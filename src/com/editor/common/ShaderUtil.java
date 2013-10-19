@@ -12,6 +12,7 @@ public class ShaderUtil {
     private final static String _logTag = "ShaderUtil ES20_ERROR";
 
     public static int loadShader  (   int arg_shaderType,    String arg_source   ) {
+        Log.e("glthread","loadShader | id is "+Thread.currentThread().getId());
         int shader = GLES20.glCreateShader(arg_shaderType);
         if (shader != 0) {
             GLES20.glShaderSource(shader, arg_source);
@@ -29,14 +30,15 @@ public class ShaderUtil {
     }
 
     public static int createShaderProgram(String arg_vertexSource, String arg_fragmentSource) throws Exception {
-        int vertexShader = loadShader(GLES20.GL_VERTEX_SHADER, arg_vertexSource);
-        if (vertexShader == 0) {
-            throw new Exception("can not create vertex shader");
-        }
 
         int pixelShader = loadShader(GLES20.GL_FRAGMENT_SHADER, arg_fragmentSource);
         if (pixelShader == 0) {
             throw new Exception("can not create pixel shader");
+        }
+
+        int vertexShader = loadShader(GLES20.GL_VERTEX_SHADER, arg_vertexSource);
+        if (vertexShader == 0) {
+            throw new Exception("can not create vertex shader");
         }
 
         int program = GLES20.glCreateProgram();

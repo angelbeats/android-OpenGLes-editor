@@ -28,17 +28,14 @@ public class RectModel implements Model {
     private float _width;
     private float _height;
 
-    //Æ½ÒÆ
     float _tx;
     float _ty;
     float _tz;
 
-    //Ëõ·Å
     float _sx=1;
     float _sy=1;
     float _sz=1;
 
-    //Ðý×ª
     float _rx;
     float _rXAngle;
     float _ry;
@@ -101,9 +98,9 @@ public class RectModel implements Model {
     public void initShader(Resources arg_resources) throws Exception {
 
         Log.i(_logTag, "initShader");
-        _vertexShaderContent = ShaderUtil.loadShaderFromAssetsFile("vertex.sh", arg_resources);
+        _vertexShaderContent = ShaderUtil.loadShaderFromAssetsFile("RectModel/vertex.sh", arg_resources);
 
-        _fragmentShaderContent = ShaderUtil.loadShaderFromAssetsFile("frag.sh", arg_resources);
+        _fragmentShaderContent = ShaderUtil.loadShaderFromAssetsFile("RectModel/frag.sh", arg_resources);
 
         _shaderProgramID = ShaderUtil.createShaderProgram(_vertexShaderContent, _fragmentShaderContent);
 

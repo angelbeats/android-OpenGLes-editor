@@ -12,7 +12,7 @@ import java.util.HashMap;
  * Created with IntelliJ IDEA.
  * User: walker
  * Date: 13-10-3
- * Time: обнГ4:15
+ * Time: О©╫О©╫О©╫О©╫4:15
  * To change this template use File | Settings | File Templates.
  */
 public class ModelFactory {
@@ -73,7 +73,7 @@ public class ModelFactory {
             Log.e(_logTag, "the height or width is Illegal :height "+arg_height+" , width "+arg_width);
             throw new Exception("Resources is null");
         }
-
+        Log.e("glthread","buildRectModel | id is "+Thread.currentThread().getId());
         return new RectModel(arg_resources, arg_width, arg_height);
     }
 

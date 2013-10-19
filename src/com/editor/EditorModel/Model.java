@@ -4,12 +4,12 @@ package com.editor.EditorModel;
  * Created with IntelliJ IDEA.
  * User: walker
  * Date: 13-10-3
- * Time: обнГ1:22
+ * Time: О©╫О©╫О©╫О©╫1:22
  * To change this template use File | Settings | File Templates.
  */
 public interface Model {
 
-    public void draw( );
+    public void draw();
     public String getModelId();
     public void setPosition(float arg_x ,float arg_y ,float arg_z );
     public void setScale(float arg_x ,float arg_y ,float arg_z);

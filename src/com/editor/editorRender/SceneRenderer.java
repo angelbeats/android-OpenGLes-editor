@@ -4,6 +4,7 @@ import android.opengl.GLES20;
 import android.opengl.GLSurfaceView;
 import android.util.Log;
 import com.editor.EditorModel.Model;
+import com.editor.EditorModel.ModelFactory;
 import com.editor.common.MatrixState;
 import com.editor.common.SceneConstant;
 
@@ -50,10 +51,18 @@ public class SceneRenderer implements GLSurfaceView.Renderer  ,editorRender
     private float _backgroundB = SceneConstant.INIT_COLOR_B;
     private float _backgroundAlpha = SceneConstant.INIT_COLOR_ALPHA;
 
+    private GLSurfaceView _view;
+    public SceneRenderer(GLSurfaceView v){
+        _view  = v;
+
+
+    }
+    public boolean isFinish=false;
 
     private boolean _isChangeBackgroundColor=false;
 
     public boolean setModelList(CopyOnWriteArrayList<Model> arg_list ){
+        Log.e("glthread","setModelList | id is "+Thread.currentThread().getId());
         _modelList = arg_list;
         return true;
     }

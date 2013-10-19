@@ -9,6 +9,7 @@ import android.view.WindowManager;
 import android.widget.ImageView;
 import android.widget.Toast;
 import com.editor.common.ArcMenu.ArcMenu;
+import com.editor.editorRender.SceneRenderer;
 import roboguice.activity.RoboActivity;
 import roboguice.inject.InjectView;
 
