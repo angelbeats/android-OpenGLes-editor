@@ -1,7 +1,8 @@
-package com.editor;
+package com.editor.editorRender;
 
 import android.opengl.GLES20;
 import android.opengl.GLSurfaceView;
+import android.util.Log;
 import com.editor.EditorModel.Model;
 import com.editor.common.MatrixState;
 import com.editor.common.SceneConstant;
@@ -18,8 +19,10 @@ import java.util.concurrent.CopyOnWriteArrayList;
  * To change this template use File | Settings | File Templates.
  */
 
-public class SceneRenderer implements GLSurfaceView.Renderer
+public class SceneRenderer implements GLSurfaceView.Renderer  ,editorRender
 {
+
+    private final static String _logTag="SceneRender";
     CopyOnWriteArrayList<Model> _modelList;
     //camera position
     private float _cameraX = SceneConstant.INIT_CAMERA_X;
@@ -48,6 +51,8 @@ public class SceneRenderer implements GLSurfaceView.Renderer
     private float _backgroundAlpha = SceneConstant.INIT_COLOR_ALPHA;
 
 
+    private boolean _isChangeBackgroundColor=false;
+
     public boolean setModelList(CopyOnWriteArrayList<Model> arg_list ){
         _modelList = arg_list;
         return true;
@@ -62,14 +67,19 @@ public class SceneRenderer implements GLSurfaceView.Renderer
         _lightY = arg_y;
         _lightZ = arg_z;
     }
-    public boolean setBackgroundColor(float arg_r,float arg_g,float arg_b ,float arg_alpha)throws Exception{
+    public boolean setBackgroundColor(float arg_r,float arg_g,float arg_b ,float arg_alpha){
 
-        if(arg_b > 255 || arg_b <0 ||
-           arg_g > 255 || arg_g <0 ||
-           arg_r > 255 || arg_r <0 ||
+        if(arg_b >1 || arg_b <0 ||
+           arg_g > 1 || arg_g <0 ||
+           arg_r > 1 || arg_r <0 ||
            arg_alpha>1 || arg_alpha<0){
-           throw new Exception("err color param!");
+          Log.e(_logTag , "color param is wrong!");
         }
+        _isChangeBackgroundColor=true;
+        _backgroundR =arg_r;
+        _backgroundG=arg_g;
+        _backgroundB=arg_b;
+        _backgroundAlpha =arg_alpha;
         return true;
     }
 
@@ -77,9 +87,10 @@ public class SceneRenderer implements GLSurfaceView.Renderer
     public void onDrawFrame(GL10 gl)
     {
         GLES20.glClear(GLES20.GL_DEPTH_BUFFER_BIT | GLES20.GL_COLOR_BUFFER_BIT);
-
-        MatrixState.setCamera(_cameraX,_cameraY,_cameraZ,_eyeX,_eyeY,_eyeZ,_upX,_upY,_upZ);
-        MatrixState.setLightLocation(_lightX,_lightY,_lightZ);
+        if(_isChangeBackgroundColor){
+            GLES20.glClearColor(_backgroundR,_backgroundG,_backgroundB,_backgroundAlpha);
+            _isChangeBackgroundColor=false;
+        }
         if(_modelList!=null){
             for(Model model:_modelList){
                 model.draw();

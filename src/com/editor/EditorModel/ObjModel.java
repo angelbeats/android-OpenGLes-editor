@@ -94,8 +94,8 @@ public class ObjModel implements Model {
         GLES20.glUseProgram(_program);
         GLES20.glUniformMatrix4fv(_finalMatrixHandle, 1, false, MatrixState.getFinalMatrix(), 0);
         GLES20.glUniformMatrix4fv(_tranMatrixHandle, 1, false, MatrixState.getMMatrix(), 0);
-        GLES20.glUniform3fv(_lightLocationHandle, 1, MatrixState.lightPositionFB);
-        GLES20.glUniform3fv(_cameraHandle, 1, MatrixState.cameraFB);
+        GLES20.glUniform3fv(_lightLocationHandle, 1, MatrixState.getLightPositionFB());
+        GLES20.glUniform3fv(_cameraHandle, 1, MatrixState.getCameraFB());
         GLES20.glVertexAttribPointer
                 (
                         _positionHandle,

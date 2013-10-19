@@ -8,81 +8,83 @@ import java.util.*;
 import android.opengl.Matrix;
 
 public class MatrixState {
-    private static float[] mProjMatrix = new float[16];
-    private static float[] mVMatrix = new float[16];
-    private static float[] currMatrix;
-    public static float[] lightLocation = new float[]{0, 0, 0};
-    public static FloatBuffer cameraFB;
-    public static FloatBuffer lightPositionFB;
+    private static float[] _mProjMatrix = new float[16];
+    private static float[] _mVMatrix = new float[16];
+    private static float[] _currMatrix;
+    private static float[] _lightLocation = new float[]{0, 0, 0};
+    private static FloatBuffer _cameraFB;
+    private static FloatBuffer _lightPositionFB;
+    private static boolean _isSetLightBF = false;
+    private static boolean _isSetCameraBF = false;
 
-    public static Stack<float[]> mStack = new Stack<float[]>();
+    private static Stack<float[]> _mStack = new Stack<float[]>();
 
+
+    public static FloatBuffer getCameraFB(){
+        if(!_isSetCameraBF ){
+            setCamera(0,0,35,0,0,0,1,0,10);
+            _isSetCameraBF = true;
+        }
+        return _cameraFB;
+    }
+    public static  FloatBuffer getLightPositionFB(){
+        if(!_isSetLightBF ){
+             setLightLocation(0,0,0);
+            _isSetLightBF = true;
+        }
+        return _lightPositionFB;
+    }
     public static void setInitStack()
     {
-        currMatrix = new float[16];
-        Matrix.setRotateM(currMatrix, 0, 0, 1, 0, 0);
+        _currMatrix = new float[16];
+        Matrix.setRotateM(_currMatrix, 0, 0, 1, 0, 0);
     }
 
     public static void pushMatrix()
     {
-        mStack.push(currMatrix.clone());
+        _mStack.push(_currMatrix.clone());
     }
 
     public static void popMatrix()
     {
-        currMatrix = mStack.pop();
+        _currMatrix = _mStack.pop();
     }
 
     public static void translate(float x, float y, float z)
     {
-        Matrix.translateM(currMatrix, 0, x, y, z);
+        Matrix.translateM(_currMatrix, 0, x, y, z);
     }
 
     public static void rotate(float angle, float x, float y, float z)
     {
-        Matrix.rotateM(currMatrix, 0, angle, x, y, z);
+        Matrix.rotateM(_currMatrix, 0, angle, x, y, z);
 
     }
 
 
 
-    public static void setCamera
-    (
-            float cx,
-            float cy,
-            float cz,
-            float tx,
-            float ty,
-            float tz,
-            float upx,
-            float upy,
-            float upz
+    public static void setCamera (
+            float arg_cx,            float arg_cy,        float arg_cz,
+            float arg_tx,         float arg_ty,     float arg_tz,
+            float arg_upx,   float arg_upy,    float arg_upz
     ) {
-        Matrix.setLookAtM
-                (
-                        mVMatrix,
-                        0,
-                        cx,
-                        cy,
-                        cz,
-                        tx,
-                        ty,
-                        tz,
-                        upx,
-                        upy,
-                        upz
+        Matrix.setLookAtM  (
+                        _mVMatrix,               0,
+                arg_cx,                      arg_cy,            arg_cz,
+                arg_tx,          arg_ty,       arg_tz,
+                        arg_upx,   arg_upy,    arg_upz
                 );
 
         float[] cameraLocation = new float[3];
-        cameraLocation[0] = cx;
-        cameraLocation[1] = cy;
-        cameraLocation[2] = cz;
+        cameraLocation[0] = arg_cx;
+        cameraLocation[1] = arg_cy;
+        cameraLocation[2] = arg_cz;
 
         ByteBuffer llbb = ByteBuffer.allocateDirect(3 * 4);
         llbb.order(ByteOrder.nativeOrder());
-        cameraFB = llbb.asFloatBuffer();
-        cameraFB.put(cameraLocation);
-        cameraFB.position(0);
+        _cameraFB = llbb.asFloatBuffer();
+        _cameraFB.put(cameraLocation);
+        _cameraFB.position(0);
     }
 
     public static void setProjectFrustum
@@ -94,7 +96,7 @@ public class MatrixState {
             float near,
             float far
     ) {
-        Matrix.frustumM(mProjMatrix, 0, left, right, bottom, top, near, far);
+        Matrix.frustumM(_mProjMatrix, 0, left, right, bottom, top, near, far);
     }
 
     public static void setProjectOrtho
@@ -106,32 +108,32 @@ public class MatrixState {
             float near,
             float far
     ) {
-        Matrix.orthoM(mProjMatrix, 0, left, right, bottom, top, near, far);
+        Matrix.orthoM(_mProjMatrix, 0, left, right, bottom, top, near, far);
     }
 
     public static float[] getFinalMatrix() {
         float[] mMVPMatrix = new float[16];
-        Matrix.multiplyMM(mMVPMatrix, 0, mVMatrix, 0, currMatrix, 0);
-        Matrix.multiplyMM(mMVPMatrix, 0, mProjMatrix, 0, mMVPMatrix, 0);
+        Matrix.multiplyMM(mMVPMatrix, 0, _mVMatrix, 0, _currMatrix, 0);
+        Matrix.multiplyMM(mMVPMatrix, 0, _mProjMatrix, 0, mMVPMatrix, 0);
         return mMVPMatrix;
     }
 
     public static float[] getMMatrix() {
-        return currMatrix;
+        return _currMatrix;
     }
 
     public static void setLightLocation(float x, float y, float z) {
-        lightLocation[0] = x;
-        lightLocation[1] = y;
-        lightLocation[2] = z;
+        _lightLocation[0] = x;
+        _lightLocation[1] = y;
+        _lightLocation[2] = z;
         ByteBuffer llbb = ByteBuffer.allocateDirect(3 * 4);
         llbb.order(ByteOrder.nativeOrder());
-        lightPositionFB = llbb.asFloatBuffer();
-        lightPositionFB.put(lightLocation);
-        lightPositionFB.position(0);
+        _lightPositionFB = llbb.asFloatBuffer();
+        _lightPositionFB.put(_lightLocation);
+        _lightPositionFB.position(0);
     }
 
     public static void scale(float x,float y,float z){
-        Matrix.scaleM(currMatrix, 0, x, y, z);
+        Matrix.scaleM(_currMatrix, 0, x, y, z);
     }
 }

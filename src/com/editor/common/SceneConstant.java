@@ -39,9 +39,9 @@ public class SceneConstant {
     public final static float INIT_LIGHT_Z = 20;
 
     //background color
-    public final static float INIT_COLOR_R = 20;
-    public final static float INIT_COLOR_G = 0;
-    public final static float INIT_COLOR_B = 0;
+    public final static float INIT_COLOR_R = 0.1f;
+    public final static float INIT_COLOR_G = 0.1f;
+    public final static float INIT_COLOR_B = 0.1f;
     public final static float INIT_COLOR_ALPHA = 1;
 
 }

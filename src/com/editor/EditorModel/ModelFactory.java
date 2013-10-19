@@ -19,10 +19,9 @@ public class ModelFactory {
 
     private static final String _logTag = "ModelFactory";
 
-    public static HashMap<String, Model> buildObjModel(String[] arg_pathList , Resources arg_resources) throws Exception {
+    public static HashMap<String, Model> buildObjModel(String[] arg_pathList, Resources arg_resources) throws Exception {
         HashMap<String, Model> objHashMap;
         objHashMap = new HashMap<String, Model>();
-        MatrixState.setLightLocation(40, 10, 20);
         if (null == arg_resources) {
             Log.e(_logTag, "Resources is null");
             throw new Exception("Resources is null");
@@ -45,19 +44,39 @@ public class ModelFactory {
         }
         return objHashMap;
     }
-
-    public static Model buildRectModel(float arg_width , float arg_height , Resources arg_resources)throws Exception{
-        if(null == arg_resources ){
-
+    public static Model buildObjModel(String arg_path, Resources arg_resources) throws Exception {
+        if (null == arg_resources) {
+            Log.e(_logTag, "Resources is null");
+            throw new Exception("Resources is null");
+        }
+        if (null == arg_path) {
+            Log.e(_logTag, "Path is null");
+            throw new Exception("Path is null");
         }
 
-        if(arg_height<0||arg_width<0){
-
+        Log.i(_logTag, "load " + arg_path);
+        Model tmp = LoadUtil.loadObjFile(arg_path, arg_resources);
+        if (null != tmp) {
+            Log.e(_logTag, "could not load the obj in "+arg_path);
+            throw new Exception("could not load the obj in "+arg_path);
         }
-
-
-
-       return  new RectModel(arg_resources,arg_width,arg_height);
+        return tmp;
     }
+
+    public static Model buildRectModel(float arg_width, float arg_height, Resources arg_resources) throws Exception {
+        if (null == arg_resources) {
+            Log.e(_logTag, "Resources is null");
+            throw new Exception("Resources is null");
+        }
+
+        if (arg_height < 0 || arg_width < 0) {
+            Log.e(_logTag, "the height or width is Illegal :height "+arg_height+" , width "+arg_width);
+            throw new Exception("Resources is null");
+        }
+
+        return new RectModel(arg_resources, arg_width, arg_height);
+    }
+
+
 
 }

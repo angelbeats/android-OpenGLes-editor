@@ -11,19 +11,15 @@ public class ShaderUtil {
 
     private final static String _logTag = "ShaderUtil ES20_ERROR";
 
-    public static int loadShader
-    (
-            int shaderType,
-            String source
-    ) {
-        int shader = GLES20.glCreateShader(shaderType);
+    public static int loadShader  (   int arg_shaderType,    String arg_source   ) {
+        int shader = GLES20.glCreateShader(arg_shaderType);
         if (shader != 0) {
-            GLES20.glShaderSource(shader, source);
+            GLES20.glShaderSource(shader, arg_source);
             GLES20.glCompileShader(shader);
             int[] compiled = new int[1];
             GLES20.glGetShaderiv(shader, GLES20.GL_COMPILE_STATUS, compiled, 0);
             if (compiled[0] == 0) {
-                Log.e(_logTag, "Could not compile shader " + shaderType + ":");
+                Log.e(_logTag, "Could not compile shader " + arg_shaderType + ":");
                 Log.e(_logTag, GLES20.glGetShaderInfoLog(shader));
                 GLES20.glDeleteShader(shader);
                 shader = 0;
@@ -32,7 +28,7 @@ public class ShaderUtil {
         return shader;
     }
 
-    public static int createShaderProgram(String arg_vertexSource, String arg_fragmentSource)throws Exception{
+    public static int createShaderProgram(String arg_vertexSource, String arg_fragmentSource) throws Exception {
         int vertexShader = loadShader(GLES20.GL_VERTEX_SHADER, arg_vertexSource);
         if (vertexShader == 0) {
             throw new Exception("can not create vertex shader");
@@ -53,9 +49,8 @@ public class ShaderUtil {
             int[] linkStatus = new int[1];
             GLES20.glGetProgramiv(program, GLES20.GL_LINK_STATUS, linkStatus, 0);
             if (linkStatus[0] != GLES20.GL_TRUE) {
-                String msg =  GLES20.glGetProgramInfoLog(program);
-                Log.e(_logTag, "Could not link program: ");
-                Log.e(_logTag, msg );
+                String msg = GLES20.glGetProgramInfoLog(program);
+                Log.e(_logTag, "Could not link program: "+msg);
                 GLES20.glDeleteProgram(program);
                 throw new Exception(msg);
             }
@@ -86,8 +81,7 @@ public class ShaderUtil {
             result = new String(buff, "UTF-8");
             result = result.replaceAll("\\r\\n", "\n");
         } catch (Exception e) {
-            e.printStackTrace();
-            Log.e(_logTag,  "loadShaderFromAssetsFile err: "+e.getMessage() );
+            Log.e(_logTag, "loadShaderFromAssetsFile err: " + e.getMessage());
         }
         return result;
     }
