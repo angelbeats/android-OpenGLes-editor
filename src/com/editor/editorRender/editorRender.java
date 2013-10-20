@@ -18,4 +18,5 @@ public interface editorRender {
 
     public boolean setModelList(CopyOnWriteArrayList<Model> arg_list );
 
+    public boolean isSurfaceCreated();
 }

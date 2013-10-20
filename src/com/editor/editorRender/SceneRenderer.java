@@ -5,6 +5,7 @@ import android.opengl.GLSurfaceView;
 import android.util.Log;
 import com.editor.EditorModel.Model;
 import com.editor.EditorModel.ModelFactory;
+import com.editor.EditorModel.ShaderManager;
 import com.editor.common.MatrixState;
 import com.editor.common.SceneConstant;
 
@@ -51,16 +52,13 @@ public class SceneRenderer implements GLSurfaceView.Renderer  ,editorRender
     private float _backgroundB = SceneConstant.INIT_COLOR_B;
     private float _backgroundAlpha = SceneConstant.INIT_COLOR_ALPHA;
 
-    private GLSurfaceView _view;
-    public SceneRenderer(GLSurfaceView v){
-        _view  = v;
-
-
-    }
-    public boolean isFinish=false;
+    public boolean _isFinish=false;
 
     private boolean _isChangeBackgroundColor=false;
-
+    GLSurfaceView v ;
+    public SceneRenderer(GLSurfaceView vr){
+                           v = vr;
+    }
     public boolean setModelList(CopyOnWriteArrayList<Model> arg_list ){
         Log.e("glthread","setModelList | id is "+Thread.currentThread().getId());
         _modelList = arg_list;
@@ -100,6 +98,13 @@ public class SceneRenderer implements GLSurfaceView.Renderer  ,editorRender
             GLES20.glClearColor(_backgroundR,_backgroundG,_backgroundB,_backgroundAlpha);
             _isChangeBackgroundColor=false;
         }
+        try {
+            ModelFactory.buildObjModel("rocket.obj",v.getResources()).draw();
+
+        }   catch (Exception e){
+
+        }
+
         if(_modelList!=null){
             for(Model model:_modelList){
                 model.draw();
@@ -132,7 +137,10 @@ public class SceneRenderer implements GLSurfaceView.Renderer  ,editorRender
 
         MatrixState.setLightLocation(_lightX, _lightY, _lightZ);
 
+        _isFinish= true;
     }
 
-
+    public boolean isSurfaceCreated(){
+        return  _isFinish;
+    }
 }
